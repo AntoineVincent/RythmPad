@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}RythmPad{% endblock %}</title>
+        <link rel="icon" type="image/png" href="{{ asset('yourFavIcon.png') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+        <script type="text/javascript" src="{{ asset('js/jquery-2.2.3.min.js') }}" ></script>
+        <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}" ></script>
+        <script type="text/javascript" src="{{ asset('js/TrianglesLife.js') }}" ></script>
+        <script type="text/javascript" src="{{ asset('js/TweenMax.min.js') }}" ></script>      
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+    </body>
+</html>

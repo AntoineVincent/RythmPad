@@ -1,0 +1,86 @@
+h1 {
+	text-align: center;
+	color: white;
+	font-size: 65px;
+	margin-top: 150px;
+	font-family: 'Lobster';
+}
+body {
+	height: 100%;
+	width: 100%;
+	background: url('../img/Texur-03.jpg');
+	background-repeat:no-repeat;
+	background-size: cover;
+}
+#monCanvas {
+	margin:auto;
+	width: 100%;
+	height: 100px;
+	z-index: -100;
+}
+svg {
+    display: block;
+    font-family: 'Pacifico';
+    width: 100%;
+    height: 250px;
+    margin: 30px 0 0 0;
+    font-size: 110px;
+}
+.text-copy {
+    fill: none;
+    stroke: white;
+    stroke-dasharray: 8% 27%;
+    stroke-width: 1px;
+    stroke-dashoffset: 0%;
+    animation: stroke-offset 5s infinite linear;
+}
+.text-copy:nth-child(1) {
+    stroke: #F7CA18;
+    animation-delay: -1s;
+}
+.text-copy:nth-child(2) {
+    stroke: #FDE3A7;
+    animation-delay: -2s;
+}
+.text-copy:nth-child(3) {
+    stroke: #F7CA18 ;
+    animation-delay: -3s;
+}
+.text-copy:nth-child(4) {
+    stroke: #FDE3A7;
+    animation-delay: -4s;
+}
+.text-copy:nth-child(5) {
+    stroke: #F7CA18;
+    animation-delay: -5s;
+}
+@keyframes stroke-offset {
+    100% { stroke-dashoffset: -35%;}
+}
+.link {
+	margin-top: 80px;
+	text-align: center;
+	height: 40px;
+}
+.link>a {
+	color: #F7CA18;
+	font-size: 27px;
+	background-color: #674172;
+	border-radius: 22px;
+	box-shadow: ;
+	border: solid #F7CA18 1px;
+	padding: 10px;
+	font-family: 'Lobster';
+}
+.link>a:hover {
+	color: #ececec;
+	text-decoration: none;
+	border: solid #ececec 3px;
+}
+#monCanvas2 {
+	margin:auto;
+	width: 100%;
+	height: 100px;
+	z-index: -100;
+	margin-top: 20px;
+}

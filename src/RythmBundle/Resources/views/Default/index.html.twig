@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}RythmPad{% endblock %}</title>
+        <link rel="icon" type="image/png" href="{{ asset('yourFavIcon.png') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+        <script type="text/javascript" src="{{ asset('js/jquery-2.2.3.min.js') }}" ></script>
+        <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}" ></script>
+        <script type="text/javascript" src="{{ asset('js/TrianglesLife.js') }}" ></script>
+        <script type="text/javascript" src="{{ asset('js/TweenMax.min.js') }}" ></script>      
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+        {% block body %}
+
+        	<canvas id="monCanvas"></canvas>
+	        <script>
+	        	var params = {
+	        		canvasId : 'monCanvas',
+	        		triangleWidth : 36,
+	        		triangleHeight : 38,
+	        		trailMaxLenght : 10,
+	        		trailIntervalCreation : 200,
+	        		delayBeforeDisappear : 2,
+	        		colors : ['#F7CA18','#674172','#F5D76E', '#913D88','#3A539B'],
+	        	}
+	        	var tl = new TrianglesLife(params);
+	        	tl.start();
+	        </script>
+
+       		<svg viewBox="0 0 960 300">
+                <symbol id="s-text">
+                    <text text-anchor="middle" x="50%" y="40%">Bienvenue sur</text>
+                    <text text-anchor="middle" x="50%" y="80%">RythmPad</text>
+                </symbol>
+                <g class="g-ants">
+                    <use xlink:href="#s-text" class="text-copy"></use>
+                    <use xlink:href="#s-text" class="text-copy"></use>
+                    <use xlink:href="#s-text" class="text-copy"></use>
+                    <use xlink:href="#s-text" class="text-copy"></use>
+                    <use xlink:href="#s-text" class="text-copy"></use>
+                </g>
+            </svg>
+
+            <div class="col-xs-12 col-md-12 col-lg-12">
+            	<div class="col-xs-12 col-md-2 col-lg-2"></div>
+            	<div class="col-xs-12 col-md-3 col-lg-3 link">
+            		<a href="">Ecoute Libre</a>
+            	</div>
+            	<div class="col-xs-12 col-md-2 col-lg-2"></div>
+            	<div class="col-xs-12 col-md-3 col-lg-3 link">
+            		<a href="">Ajoutez Musique</a>
+            	</div>
+            	<div class="col-xs-12 col-md-2 col-lg-2"></div>
+            </div>
+
+            <canvas id="monCanvas2"></canvas>
+	        <script>
+	        	var params = {
+	        		canvasId : 'monCanvas2',
+	        		triangleWidth : 36,
+	        		triangleHeight : 38,
+	        		trailMaxLenght : 10,
+	        		trailIntervalCreation : 200,
+	        		delayBeforeDisappear : 2,
+	        		colors : ['#F7CA18','#674172','#F5D76E', '#913D88'],
+	        	}
+	        	var tl = new TrianglesLife(params);
+	        	tl.start();
+	        </script>
+
+       	{% endblock %}
+    </body>
+</html>
