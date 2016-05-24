@@ -6,7 +6,7 @@
         <link rel="icon" type="image/png" href="{{ asset('yourFavIcon.png') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
-        <script type="text/javascript" src="{{ asset('js/jquery-2.2.3.min.js') }}" ></script>
+        <script type="text/javascript" src="{{ asset('js/jquery.js') }}" ></script>
         <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}" ></script>
         <script type="text/javascript" src="{{ asset('js/TrianglesLife.js') }}" ></script>
         <script type="text/javascript" src="{{ asset('js/TweenMax.min.js') }}" ></script>      
@@ -49,11 +49,11 @@
             <div class="col-xs-12 col-md-12 col-lg-12">
             	<div class="col-xs-12 col-md-2 col-lg-2"></div>
             	<div class="col-xs-12 col-md-3 col-lg-3 link">
-            		<a href="">Ecoute Libre</a>
+            		<a href="{{ path('user_register') }}">Inscription</a>
             	</div>
             	<div class="col-xs-12 col-md-2 col-lg-2"></div>
             	<div class="col-xs-12 col-md-3 col-lg-3 link">
-            		<a href="">Ajoutez Musique</a>
+            		<a href="{{ path('user_login') }}">Connexion</a>
             	</div>
             	<div class="col-xs-12 col-md-2 col-lg-2"></div>
             </div>

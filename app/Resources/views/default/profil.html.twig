@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 prl-div">
+        	<div class="col-md-12">
+        		<h2 class="prl-title">Profil de {{ requete.username }}<h2>
+        		<hr style="border-color:#F7CA18;">
+        	</div>
+        	<div class="col-md-12">
+        		<img class="img-responsive profil-pic" src="{{ asset('img/pla.png') }}"/>
+        	</div>
+        	<div class="col-md-12">
+        		<div class="col-md-1"></div>
+        		<div class="col-md-10">
+        			<a class="btn btn-prl" href="{{ path('profil_modif') }}" role="button">Modifier votre profil</a>
+        		</div>
+        		<div class="col-md-1"></div>
+	        </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %} 

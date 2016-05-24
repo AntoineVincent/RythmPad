@@ -6,13 +6,58 @@
         <link rel="icon" type="image/png" href="{{ asset('yourFavIcon.png') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
-        <script type="text/javascript" src="{{ asset('js/jquery-2.2.3.min.js') }}" ></script>
-        <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}" ></script>
-        <script type="text/javascript" src="{{ asset('js/TrianglesLife.js') }}" ></script>
-        <script type="text/javascript" src="{{ asset('js/TweenMax.min.js') }}" ></script>      
+        <script type="text/javascript" src="{{ asset('js/jquery.js') }}" ></script>
+        <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}" ></script> 
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
     </head>
     <body>
+
+<!-- NAVBAR -->   
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{{ path('accueil') }}"><img class="img-responsive logotage" src="{{ asset('img/logorythm.png')}}">RythmPad</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %} 
+      <ul class="nav navbar-nav navbar-right">
+        <li class="wlc-user">Bienvenue {{ app.user.username | upper }}</li>
+        <li><a href="{{ path('profil') }}">Mon Profil</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Mes Musiques <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="{{ path('new_album') }}">Ajouter des Musiques</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="">Tout Afficher</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="">Par Genres</a></li>
+            <li><a href="">Par Artistes</a></li>
+          </ul>
+        </li>
+        <li><a href="{{ path('fos_user_security_logout') }}" >Se déconnecter</a></li>
+      </ul>
+      {% else %}
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{ path('user_register') }}">Inscription</a></li>
+        <li><a href="{{ path('user_login') }}" >Connexion</a></li>
+      </ul>
+      {% endif %}
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<!-- END NAVBAR -->
+
         {% block body %}{% endblock %}
     </body>
 </html>

@@ -3,6 +3,7 @@
 namespace RythmBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Album
@@ -48,6 +49,16 @@ class Album
      * @ORM\Column(name="genre", type="string", length=255, nullable=true)
      */
     private $genre;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     *
+     * @Assert\File(
+     *     maxSize = "80M",
+     *     mimeTypesMessage = "Please upload a valid music"
+     * )
+     */
+    private $musique;
 
 
     /**
@@ -154,6 +165,18 @@ class Album
     public function getGenre()
     {
         return $this->genre;
+    }
+
+    public function getMusique()
+    {
+        return $this->musique;
+    }
+
+    public function setMusique($musique)
+    {
+        $this->musique = $musique;
+
+        return $this;
     }
 }
 

@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="col-md-12 dyn-word">
+	<div class="content">
+        <div class="static">
+            <p>RythmPad</p>
+            <ul class="def">
+                <li class="word">Ajoutez</li>
+                <li class="word">Ecouter</li>
+                <li class="word">Partager</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-12">
+    {% for test in tests %}
+    <div class="col-md-1"></div>
+    <div class="col-md-5 result-ind">
+        <div class="col-md-12 mus-empt">
+            <p>Album : {{ test.titre }}</p>
+        </div>
+        <div class="col-md-12 mus-empt">
+            <p>Artiste : {{ test.artiste }}</p>
+        </div>
+        <div class="col-md-12 mus-empt">
+            <p>Genre : {{ test.genre }}</p>
+        </div>
+        <div class="col-md-12 mus-empt">
+            <audio src="{{ asset('uploads/musiques/' ~ test.musique) }}" controls></audio>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+{% endblock %} 

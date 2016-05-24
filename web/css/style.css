@@ -1,3 +1,56 @@
+/* <-- Navbar --> */
+
+.navbar {
+	background-color: #674172;
+	border: none;
+	height: 65px;
+}
+.navbar-brand {
+	color: #F7CA18 !important;
+	font-family: 'Pacifico';
+	font-size: 36px;
+}
+.navbar-default .navbar-nav > li > a {
+	color: #F7CA18 !important;
+	font-family: 'Lobster';
+	font-size: 20px;
+}
+.navbar-default .navbar-nav > .open > a {
+	background-color: #F7CA18 !important ;
+	color: white !important;
+}
+.wlc-user{
+	color: #F7CA18;
+	font-family: 'Lobster';
+	font-size: 20px;
+	border-right: solid 1px;
+	padding-right: 15px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	line-height: 20px;
+	position: relative;
+	display: block;
+}
+.dropdown-menu > li > a {
+	color: #F7CA18;
+	font-family: 'Lobster';
+	font-size: 20px;
+}
+.dropdown-menu > li > a:hover {
+	background-color: transparent;
+	color: white;
+}
+.dropdown-menu {
+	background-color: #674172;
+}
+.logotage {
+	float: left;
+	width: 50px;
+	height: 50px;
+}
+
+/* <-- WELCOME PAGE --> */
+
 h1 {
 	text-align: center;
 	color: white;
@@ -83,4 +136,166 @@ svg {
 	height: 100px;
 	z-index: -100;
 	margin-top: 20px;
+}
+
+/* REGISTER PAGE */
+
+.register-div {
+	background-color: #674172;
+	color: #F7CA18;
+	font-family: 'Lobster';
+}
+.btn {
+	background-color: #F7CA18;
+	margin: 5px;
+}
+.btn:hover {
+	background-color: white;
+	color: #F7CA18;
+}
+.btn:focus {
+	background-color: white;
+	color: #F7CA18;
+}
+.register-form {
+	padding: 10px;
+	font-size: 18px;
+}
+.register-title {
+	text-align: center;
+}
+
+/* LOGIN PAGE */
+
+.logform {
+	background-color: #674172;
+	color: #F7CA18;
+	font-family: 'Lobster';
+}
+.btnlogin {
+	background-color: #674172;
+	color: white;
+	margin: 10px;
+	font-size: 20px;
+	padding: 5px;
+}
+.btnlogin:hover {
+	background-color: white;
+	color: #F7CA18;
+}
+.btnlogin:focus {
+	background-color: white;
+	color: #F7CA18;
+}
+.tilti {
+	padding: 10px;
+	font-size: 18px;
+	color: #F7CA18;
+}
+.login-title {
+	text-align: center;
+	font-size: 30px;
+}
+
+/* ACCUEIL PAGE */
+
+.content {
+    width: 310px;
+    font-size: 50px;
+    line-height: 55px;
+    color: #ecf0f1;
+    margin: 1em auto 0;
+    font-family: 'Lobster';
+}
+.static {
+    float: left;
+    overflow: hidden;
+    height: 60px;
+}
+p {
+    display: inline;
+    float: left;
+    margin: 0;
+    color: #F7CA18;
+}
+.def {
+    margin-top: 0;
+    padding-left: 220px;
+    text-align: left;
+    list-style: none;
+    animation: 6s linear 0s normal none infinite change;
+}
+.def .word {
+    color: #674172;
+    line-height: 55px;
+    margin: 0;
+}
+@keyframes change {
+    0% { margin-top: 0; }
+    15% { margin-top: 0; }
+    25% { margin-top: -55px; }
+    40% { margin-top: -55px; }
+    50% { margin-top: -55px; }
+    65% { margin-top: -110px; }
+    75% { margin-top: -110px; }
+    85% { margin-top: -110px; }
+    100% { margin-top: 0; }
+}
+.dyn-word {
+	margin-bottom: 25px;
+}
+.result-ind {
+	background-color: #674172;
+	color: #F7CA18;
+	margin: 5px;
+	font-family: 'Lobster';
+	font-size: 19px;
+	text-align: center;
+}
+.mus-empt {
+	margin: 7px;
+}
+
+
+/* PROFIL PAGE */
+.prl-div {
+	background-color: #674172;
+}
+.prl-title {
+	color: #F7CA18;
+	text-align: center;
+	font-family: 'Lobster';
+}
+.btn-prl {
+	background-color: #674172;
+	color: #F7CA18;
+	font-size: 16px;
+	padding: 5px;
+	border: solid #F7CA18 1px;
+}
+.btn-prl:hover {
+	background-color: #674172;
+	color: white;
+	border: solid white 2px;
+}
+.btn-prl:focus {
+	background-color: #674172;
+	color: white;
+}
+.profil-pic {
+	height: 100%;
+	width: 100%;
+}
+
+/* NEW ALBUM PAGE */
+.crt-alb-title {
+	margin-top: 0;
+	color: #F7CA18;
+}
+.new-div {
+	background-color: #674172;
+}
+.alb-form {
+	color: #F7CA18;
+	margin: 5px;
 }

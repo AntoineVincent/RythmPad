@@ -9,3 +9,31 @@ app:
 # app/config/routing.yml
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+user_register:
+    path:     /user/register
+    defaults: { _controller: AppBundle:Registration:register }
+
+user_login:
+    path:     /user/login
+    defaults: { _controller: AppBundle:Security:login }
+
+user_login_check:
+    path:    /user/login/check
+    defaults: { _controller: AppBundle:Security:check }
+
+accueil:
+    path:   /index
+    defaults: { _controller: AppBundle:Accueil:accueil}
+
+profil:
+    path:   /profil
+    defaults: { _controller: AppBundle:Profil:profil}
+
+profil_modif:
+    path:   /profil/modif
+    defaults: { _controller: AppBundle:Usermodif:profilmodif}
+
+new_album:
+    path:   /album/new
+    defaults: { _controller: RythmBundle:Album:new}
