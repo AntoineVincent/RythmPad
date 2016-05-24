@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<h2 class="prl-title"> Mes Albums </h2>
+<div class="col-md-12">
+    {% for test in tests %}
+    <div class="col-md-3 result-ind">
+        <div class="col-md-12 mus-empt">
+            <img class="folder" src="{{ asset('uploads/folders/' ~ test.folder) }}" />
+        </div>
+        <div class="col-md-12 mus-empt alb-desc">
+            <p>Artiste : {{ test.artiste }}</p>
+        </div>
+        <div class="col-md-12 mus-empt alb-desc">
+            <p>Album : {{ test.titre }}</p>
+        </div>
+        <div class="col-md-12 mus-empt link-alb">
+            <a class="btn" href="{{ path('page_album', { 'idalbum': test.id }) }}">VOIR</a>
+        </div>
+    </div>
+    {% endfor %}
+    <div class="col-md-1"></div>
+</div>
+
+
+{% endblock %} 

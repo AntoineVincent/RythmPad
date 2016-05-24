@@ -15,10 +15,25 @@ class AccueilController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $tests = $em->getRepository('RythmBundle:Album')->findAll();
+        $tabalbums = [];
+
+        $albums = $em->getRepository('RythmBundle:Album')->findAll();
+
+        foreach ($albums as $album) {
+            $user = $em->getRepository('AppBundle:User')->findOneById($album->getIduser());
+            $tabalbums[] = array(
+                'user' => $user->getUsername(),
+                'folder' => $album->getFolder(),
+                'titre' => $album->getTitre(),
+                'artiste' => $album->getArtiste(),
+                'genre' => $album->getGenre(),
+                'date' => $album->getDate(),
+                'id' => $album->getId(),
+            );
+        }
 
         return $this->render('default/accueil.html.twig', array(
-            'tests' => $tests,
+            'tabalbums' => $tabalbums,
         ));
     }
 }

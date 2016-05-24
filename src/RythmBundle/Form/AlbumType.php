@@ -17,7 +17,7 @@ class AlbumType extends AbstractType
             ->add('artiste')
             ->add('date')
             ->add('genre')
-            ->add('musique', FileType::class, array('label' => 'Musique (MP3 file)'))
+            ->add('folder', FileType::class, array('label' => 'Folder (jpg file)'))
         ;
     }
 

@@ -245,17 +245,44 @@ p {
 	margin-bottom: 25px;
 }
 .result-ind {
-	background-color: #674172;
 	color: #F7CA18;
-	margin: 5px;
+	margin: 0;
 	font-family: 'Lobster';
-	font-size: 19px;
+	font-size: 22px;
 	text-align: center;
 }
-.mus-empt {
-	margin: 7px;
+.result-indd {
+	background-color: #674172;
+	color: #F7CA18;
+	margin: 18px;
+	font-family: 'Lobster';
+	font-size: 22px;
+	text-align: center;
 }
-
+.folder {
+	width: 160px;
+	height: 160px;
+	border: solid #F7CA18 2px;
+	border-radius: 3px;
+	margin-top: 10px;
+}
+.album-list-inde {
+	margin-bottom: 10px;
+	font-size: 24px;
+	font-family: 'Lobster';
+	padding: 10px;
+}
+.added-by {
+	color: #F7CA18;
+	font-family: 'Lobster';
+	text-align: left;
+}
+.btn-acces {
+	font-size: 22px;
+}
+.div-btn {
+	padding-top: 50px;
+}
 
 /* PROFIL PAGE */
 .prl-div {
@@ -269,9 +296,10 @@ p {
 .btn-prl {
 	background-color: #674172;
 	color: #F7CA18;
-	font-size: 16px;
+	font-size: 22px;
 	padding: 5px;
 	border: solid #F7CA18 1px;
+	font-family: 'Lobster';
 }
 .btn-prl:hover {
 	background-color: #674172;
@@ -286,7 +314,14 @@ p {
 	height: 100%;
 	width: 100%;
 }
-
+.user-inf {
+	font-family: 'Lobster';
+	font-size: 24px;
+}
+.prl-list-alb {
+	font-family: 'Lobster';
+	font-size: 16px;
+}
 /* NEW ALBUM PAGE */
 .crt-alb-title {
 	margin-top: 0;
@@ -298,4 +333,13 @@ p {
 .alb-form {
 	color: #F7CA18;
 	margin: 5px;
+}
+
+/* ALBUM PAGE */
+.file-list {
+	background-color:#674172;
+	padding: 15px;
+}
+.lop {
+	border-bottom: solid white 1px;
 }

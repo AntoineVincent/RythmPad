@@ -37,3 +37,15 @@ profil_modif:
 new_album:
     path:   /album/new
     defaults: { _controller: RythmBundle:Album:new}
+
+list_album:
+    path:   /album/list
+    defaults: { _controller: RythmBundle:Album:list}
+
+page_album:
+    path:   /album/{idalbum}
+    defaults: { _controller: RythmBundle:Album:page}
+
+new_musique:
+    path:   /album/musique/{idalbum}
+    defaults: { _controller: RythmBundle:Album:musique}

@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="col-md-12">
+    <div class="col-md-3 result-indd">
+        <div class="col-md-12 mus-empt">
+            <img class="folder" src="{{ asset('uploads/folders/' ~ test.folder) }}" />
+        </div>
+        <div class="col-md-12 mus-empt alb-desc">
+            <p >Album : {{ test.titre }}</p><br>
+            <p >Artiste : {{ test.artiste }}</p><br>
+            <p >Genre : {{ test.genre }}</p><br>
+            <p >Date de Sortie : {{ test.date|date('d-m-Y') }}
+        </div>
+        <div class="col-md-12 mus-empt alb-desc">
+        	<a class="btn" href="{{ path('new_musique', { 'idalbum': test.id }) }}">
+        		Ajoutez des pistes
+        	</a>
+        </div>
+    </div>
+
+    <div class="col-md-8 file-list result-indd">
+ 		{% for musique in musiques %}
+ 			<div class="col-md-12">
+    			<div class="col-md-4">
+    				<p>{{ musique.titre }}</p>
+    			</div>
+    			<div class="col-md-6">
+    				<audio src="{{ asset('uploads/musiques/' ~ musique.musique) }}" controls></audio>
+    			</div>
+    		</div>
+    		<hr class="lop">
+    	{% endfor %}
+	</div>
+</div>
+
+
+{% endblock %} 

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<h1 class="crt-alb-title">Ajoutez des pistes</h1>
+<div class="col-md-3"></div>
+<div class="col-md-6 new-div">
+	{{ form_start(form) }}
+		<div class="col-md-12 alb-form">
+            <div class="col-md-1"></div>
+            <div class="col-md-4">
+    		  <p>Titre</p> 
+            </div>
+            <div class="col-md-6">
+              {{ form_widget(form.titre) }}
+            </div>
+		</div>
+    	<div class="col-md-12 alb-form">
+            <div class="col-md-1"></div>
+            <div class="col-md-4">
+    		  <p>Musique</p> 
+            </div>
+            <div class="col-md-6">
+              {{ form_widget(form.musique) }}
+            </div>
+    	</div>
+    	<div class="col-md-12 alb-form">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+    		  <input type="submit" class="btn btn-primary" id="_submit" name="submit" value="Envoyer" />
+            </div>
+            <div class="col-md-4"></div>
+    	</div>
+        <div class="col-md-12 mus-empt alb-desc">
+            <a class="btn" href="{{ path('page_album', { 'idalbum': album.id }) }}">
+                Retour
+            </a>
+        </div>
+	{{ form_end(form) }}
+</div>
+
+{% endblock %} 

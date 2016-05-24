@@ -4,60 +4,70 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12 ent_espace">
-            <h3>
+            <h2 class="prl-title">
                 <b>{{ app.user.username }}</b>, vous pouvez modifier vos informations ici 
-            </h3>
+            </h2>
         </div>
             <div class="col-md-12">
-                <div class="col-md-6 form_espace">
+                <div class="col-md-3"></div>
+                <div class="col-md-6 form_espace prl-div">
                     <form action="{{ path("profil_modif") }}" method="post">
                         <div class="col-md-12">
-                            <label for="nom">Nom :</label>
-                            <input type="string" id="nom" name="nom" value="{{ requete.nom }}"/>
-                        </div>
+                            <div class="col-md-7">
+                                <label for="nom">Nom :</label>
+                                <input type="string" id="nom" name="nom" value="{{ requete.nom }}"/>
+                            </div>
                         <div class="col-md-12">
-                            <label for="prenom">Prenom :</label>
-                            <input type="string" id="prenom" name="prenom" value="{{ requete.prenom }}"/>
                         </div>
+                            <div class="col-md-7">
+                                <label for="prenom">Prenom :</label>
+                                <input type="string" id="prenom" name="prenom" value="{{ requete.prenom }}"/>
+                            </div>
                         <div class="col-md-12">
-                            <label for="genre">Genre :</label>
-                            <select name="genre" id="genre">
-                                {% if requete.genre == "homme" %}
-                                    <option selected value="homme">Homme</option>
-                                    <option value="femme">Femme</option>
-                                {% else %}
-                                    <option value="homme">Homme</option>
-                                    <option selected value="femme">Femme</option>
-                                {% endif %}
-                            </select>
                         </div>
+                            <div class="col-md-7">
+                                <label for="genre">Genre :</label>
+                                <select name="genre" id="genre">
+                                    {% if requete.genre == "homme" %}
+                                        <option selected value="homme">Homme</option>
+                                        <option value="femme">Femme</option>
+                                    {% else %}
+                                        <option value="homme">Homme</option>
+                                        <option selected value="femme">Femme</option>
+                                    {% endif %}
+                                </select>
+                            </div>
                         <div class="col-md-12">
-                            <label for="promo">Promo :</label>
-                            <select name="promo" id="promo">
-                                {% if requete.promo == "chartres" %}
-                                    <option selected value="chartres">Chartres</option>
-                                    <option value="fontainebleau">Fontainebleau</option>
-                                    <option value="la loupe">La Loupe</option>
-                                {% elseif requete.promo == "fontainebleau" %}
-                                    <option value="chartres">Chartres</option>
-                                    <option selected value="fontainebleau">Fontainebleau</option>
-                                    <option value="la loupe">La Loupe</option>
-                                {% else %}
-                                    <option value="chartres">Chartres</option>
-                                    <option value="fontainebleau">Fontainebleau</option>
-                                    <option selected value="la loupe">La Loupe</option>
-                                {% endif %}
-                            </select>
                         </div>
+                            <div class="col-md-7">
+                                <label for="promo">Promo :</label>
+                                <select name="promo" id="promo">
+                                    {% if requete.promo == "chartres" %}
+                                        <option selected value="chartres">Chartres</option>
+                                        <option value="fontainebleau">Fontainebleau</option>
+                                        <option value="la loupe">La Loupe</option>
+                                    {% elseif requete.promo == "fontainebleau" %}
+                                        <option value="chartres">Chartres</option>
+                                        <option selected value="fontainebleau">Fontainebleau</option>
+                                        <option value="la loupe">La Loupe</option>
+                                    {% else %}
+                                        <option value="chartres">Chartres</option>
+                                        <option value="fontainebleau">Fontainebleau</option>
+                                        <option selected value="la loupe">La Loupe</option>
+                                    {% endif %}
+                                </select>
+                            </div>
                         <div class="col-md-12">
-                            <input type="hidden" name="hidden" value="1"/>
                         </div>
-                        <div class="col-md-12">
-                            <input type="submit" class="btn btn-primary" id="_submit" name="submit" value="Envoyer" />
-                        </div>
-                        <div class="col-md-12 return">
-                            <a href="{{ path ("profil") }}">Retour</a>
-                        </div>
+                            <div class="col-md-12">
+                                <input type="hidden" name="hidden" value="1"/>
+                            </div>
+                            <div class="col-md-12">
+                                <input type="submit" class="btn btn-primary" id="_submit" name="submit" value="Envoyer" />
+                            </div>
+                            <div class="col-md-12 return">
+                                <a class="btn btn-primary" href="{{ path ("profil") }}">Retour</a>
+                            </div>
                     </form>
                 </div>   
         </div>

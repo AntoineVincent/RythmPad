@@ -17,9 +17,11 @@ class ProfilController extends Controller
         $user = $this->container->get('security.context')->getToken()->getUser();
 
         $request = $em->getRepository('AppBundle:User')->findOneById($user->getId());
+        $albums = $em->getRepository('RythmBundle:Album')->findByIduser($user->getId());
         
         return $this->render('default/profil.html.twig', array(
             'requete' => $request,
+            'albums' => $albums,
         ));
     }
 }

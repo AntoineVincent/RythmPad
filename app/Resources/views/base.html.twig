@@ -37,12 +37,11 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Mes Musiques <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="{{ path('new_album') }}">Ajouter des Musiques</a></li>
+            <li><a href="{{ path('new_album') }}">Ajouter des Albums</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="">Tout Afficher</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="">Par Genres</a></li>
-            <li><a href="">Par Artistes</a></li>
+            <li><a href="{{ path('list_album') }}">Par Album</a></li>
           </ul>
         </li>
         <li><a href="{{ path('fos_user_security_logout') }}" >Se déconnecter</a></li>

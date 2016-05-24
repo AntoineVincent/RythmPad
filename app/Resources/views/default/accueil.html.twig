@@ -14,25 +14,27 @@
     </div>
 </div>
 
-<div class="col-md-12">
-    {% for test in tests %}
-    <div class="col-md-1"></div>
-    <div class="col-md-5 result-ind">
-        <div class="col-md-12 mus-empt">
-            <p>Album : {{ test.titre }}</p>
+{% for tabalbum in tabalbums|reverse %}
+    <div class="col-md-12">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 prl-div album-list-inde">
+            <h2 class="added-by">Album Ajouté par : {{ tabalbum['user'] }}</h2>
+            <hr>
+            <div class="col-md-3">
+                <img class="folder" src="{{ asset('uploads/folders/' ~ tabalbum['folder']) }}" />
+            </div>
+            <div class="col-md-5">
+                <p>Titre : {{ tabalbum['titre'] }}</p><br>
+                <p>Artiste : {{ tabalbum['artiste'] }}</p><br>
+                <p>Genre : {{ tabalbum['genre'] }}</p><br>
+                <p>Date : {{ tabalbum['date']|date('Y') }}</p>
+            </div>
+            <div class="col-md-4 div-btn">
+                <a class="btn btn-acces" href="{{ path('page_album', { 'idalbum': tabalbum['id'] }) }}">Ecouter</a>
+            </div>
         </div>
-        <div class="col-md-12 mus-empt">
-            <p>Artiste : {{ test.artiste }}</p>
-        </div>
-        <div class="col-md-12 mus-empt">
-            <p>Genre : {{ test.genre }}</p>
-        </div>
-        <div class="col-md-12 mus-empt">
-            <audio src="{{ asset('uploads/musiques/' ~ test.musique) }}" controls></audio>
-        </div>
+        <div class="col-md-2"></div>
     </div>
-    {% endfor %}
-</div>
-
+{% endfor %}
 
 {% endblock %} 

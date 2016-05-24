@@ -3,7 +3,6 @@
 namespace RythmBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Album
@@ -39,7 +38,7 @@ class Album
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date", type="datetime", nullable=true)
+     * @ORM\Column(name="date", type="date", nullable=true)
      */
     private $date;
 
@@ -51,14 +50,18 @@ class Album
     private $genre;
 
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @var string
      *
-     * @Assert\File(
-     *     maxSize = "80M",
-     *     mimeTypesMessage = "Please upload a valid music"
-     * )
+     * @ORM\Column(name="folder", type="string", length=255, nullable=true)
      */
-    private $musique;
+    private $folder;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="iduser", type="integer", nullable=true)
+     */
+    private $iduser;
 
 
     /**
@@ -167,16 +170,52 @@ class Album
         return $this->genre;
     }
 
-    public function getMusique()
+    /**
+     * Set folder
+     *
+     * @param string $folder
+     *
+     * @return Album
+     */
+    public function setFolder($folder)
     {
-        return $this->musique;
-    }
-
-    public function setMusique($musique)
-    {
-        $this->musique = $musique;
+        $this->folder = $folder;
 
         return $this;
+    }
+
+    /**
+     * Get folder
+     *
+     * @return string
+     */
+    public function getFolder()
+    {
+        return $this->folder;
+    }
+
+    /**
+     * Set iduser
+     *
+     * @param integer $iduser
+     *
+     * @return Album
+     */
+    public function setIduser($iduser)
+    {
+        $this->iduser = $iduser;
+
+        return $this;
+    }
+
+    /**
+     * Get iduser
+     *
+     * @return int
+     */
+    public function getIduser()
+    {
+        return $this->iduser;
     }
 }
 

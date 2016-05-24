@@ -5,6 +5,8 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use AppBundle\Entity\User;
 use AppBundle\Form\UserType;
 
@@ -37,6 +39,7 @@ class UsermodifController extends Controller
             if (!empty($promo)) {
                 $requestinfos->setPromo($promo);
             }
+
             $em->persist($requestinfos);
             $em->flush();
         }
