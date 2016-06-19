@@ -30,6 +30,14 @@ profil:
     path:   /profil
     defaults: { _controller: AppBundle:Profil:profil}
 
+user_profil:
+    path:   /user/profil/{username}
+    defaults: { _controller: AppBundle:Profil:user}
+
+user_ami:
+    path:   /user/profil/ami/{username}
+    defaults: { _controller: AppBundle:Profil:ami}
+
 profil_modif:
     path:   /profil/modif
     defaults: { _controller: AppBundle:Usermodif:profilmodif}

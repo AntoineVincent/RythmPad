@@ -19,17 +19,19 @@
 
         	<canvas id="monCanvas"></canvas>
 	        <script>
-	        	var params = {
-	        		canvasId : 'monCanvas',
-	        		triangleWidth : 36,
-	        		triangleHeight : 38,
-	        		trailMaxLenght : 10,
-	        		trailIntervalCreation : 200,
-	        		delayBeforeDisappear : 2,
-	        		colors : ['#F7CA18','#674172','#F5D76E', '#913D88','#3A539B'],
-	        	}
-	        	var tl = new TrianglesLife(params);
-	        	tl.start();
+	        	$(document).ready(function() {
+                    var params = {
+                        canvasId : 'monCanvas',
+                        triangleWidth : 36,
+                        triangleHeight : 38,
+                        trailMaxLenght : 6,
+                        trailIntervalCreation : 800,
+                        delayBeforeDisappear : 1,
+                        colors : ['#F7CA18', '#19B5FE','#9A12B3'],
+                    }
+                    var tl = new TrianglesLife(params);
+                    tl.start();
+                });
 	        </script>
 
        		<svg viewBox="0 0 960 300">
@@ -60,17 +62,19 @@
 
             <canvas id="monCanvas2"></canvas>
 	        <script>
-	        	var params = {
-	        		canvasId : 'monCanvas2',
-	        		triangleWidth : 36,
-	        		triangleHeight : 38,
-	        		trailMaxLenght : 10,
-	        		trailIntervalCreation : 200,
-	        		delayBeforeDisappear : 2,
-	        		colors : ['#F7CA18','#674172','#F5D76E', '#913D88'],
-	        	}
-	        	var tl = new TrianglesLife(params);
-	        	tl.start();
+	        	$(document).ready(function() {
+                    var params = {
+                        canvasId : 'monCanvas2',
+                        triangleWidth : 36,
+                        triangleHeight : 38,
+                        trailMaxLenght : 6,
+                        trailIntervalCreation : 800,
+                        delayBeforeDisappear : 1,
+                        colors : ['#F7CA18', '#19B5FE','#9A12B3'],
+                    }
+                    var tl = new TrianglesLife(params);
+                    tl.start();
+                });
 	        </script>
 
        	{% endblock %}

@@ -70,7 +70,7 @@ class User extends BaseUser
      *
      * @return string
      */
-    public function Nom()
+    public function getNom()
     {
         return $this->nom;
     }

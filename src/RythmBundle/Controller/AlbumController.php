@@ -59,10 +59,12 @@ class AlbumController extends Controller
         $em = $this->getDoctrine()->getManager();
         $test = $em->getRepository('RythmBundle:Album')->findOneById($idalbum);
         $musiques = $em->getRepository('RythmBundle:Musique')->findByIdalbum($idalbum);
+        $userad = $em->getRepository('AppBundle:User')->findOneById($test->getIduser());
 
         return $this->render('default/albumpage.html.twig', array(
             'test' => $test,
             'musiques' => $musiques,
+            'userad' => $userad,
         ));
     }
     public function musiqueAction(Request $request, $idalbum)

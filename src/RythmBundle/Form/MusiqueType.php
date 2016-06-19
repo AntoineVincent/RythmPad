@@ -15,6 +15,7 @@ class MusiqueType extends AbstractType
         $builder
             ->add('titre')
             ->add('musique', FileType::class, array('label' => 'Musique (mp3 file)'))
+            ->add('numpiste')
         ;
     }
 

@@ -1,0 +1,113 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 prl-div">
+            <div class="col-md-12">
+                <h2 class="prl-title">Profil de {{ requete.username }}<h2>
+                <hr style="border-color:#F7CA18;">
+            </div>
+            <div class="col-md-12">
+                <img class="img-responsive profil-pic" src="{{ asset('img/pla.png') }}"/>
+                <hr style="border-color:#F7CA18;">
+            </div>
+            <div class="col-md-12">
+                <p class="user-inf">Nom : {{ requete.nom }}</p>
+            </div>
+            <div class="col-md-12">
+                <p class="user-inf">Prenom : {{ requete.prenom }}</p>
+            </div>
+            <div class="col-md-12">
+                <p class="user-inf">Genre : {{ requete.genre }}</p>
+            </div>
+            <div class="col-md-12">
+                <p class="user-inf">Promo : {{ requete.promo }}</p>
+            </div>
+            <div class="col-md-12">
+                <div class="col-md-2"></div>
+                    {% if user.id == requete.id %}
+                        <div class="col-md-5"></div>
+                        <div class="col-md-1"></div>
+                    {% else %}
+                        <div class="col-md-5">
+
+                                {% if ami.iduser is defined %}
+                                    {% if ami.iduser == user.id %}
+                                        <p class="btn btn-prl"> Abonné </p>
+                                    {% else %}
+                                        <a class="btn btn-prl" href="{{ path('user_ami', { 'username': requete.username }) }}">S'abonner</a>
+                                    {% endif %}
+                                {% else %}
+                                    <a class="btn btn-prl" href="{{ path('user_ami', { 'username': requete.username }) }}">S'abonner</a>
+                                {% endif %}
+
+                        </div>
+                        <div class="col-md-1"></div>
+                    {% endif %}
+                </div>
+            </div>
+
+        <div class="col-md-1"></div>
+        
+        <div class="col-md-8 prl-div">
+            <div class="col-md-12">
+                <div class="col-md-4 ong1 ong">
+                    <h2 class="prl-title"> Par Album </h2>
+                </div>
+                <div class="col-md-4 ong2 ong">
+                    <h2 class="prl-title"> Par Genre </h2>
+                </div>
+                <div class="col-md-4 ong3 ong">
+                    <h2 class="prl-title"> Tout afficher </h2>
+                </div>
+            </div>
+
+            <div class="col-md-12 corps1 corpsother">
+                {% for album in albums %}
+                    <div class="col-md-4 ">
+                        <div class="col-xs-12 col-md-12 prl-list-alb">
+                            <img class="folder" src="{{ asset('uploads/folders/' ~ album.folder) }}" />
+                        </div>
+                        <div class="col-xs-12 col-md-12 prl-list-alb">
+                            <p>Artiste : {{ album.artiste }}</p>
+                        </div>
+                        <div class="col-xs-12 col-md-12 prl-list-alb">
+                            <p>Album : {{ album.titre }}</p>
+                        </div>
+                        <div class="col-xs-12 col-md-12 mus-empt link-alb prl-list-alb">
+                            <a class="btn" href="{{ path('page_album', { 'idalbum': album.id }) }}">VOIR</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="col-md-12 corps2 corpsother">
+                    <div class="col-md-4 ">
+                        <div class="col-xs-12 col-md-12 prl-list-alb">
+                            <p>En Construction :'(</p>
+                        </div>
+                    </div>
+            </div>
+
+            <div class="col-md-12 corps3 corpsother">
+                {% for musique in musiques %}
+                        <div class="col-xs-12 col-md-12 prl-list-alb">
+                            <div class="col-md-2">
+                                <p>Piste n° : {{ musique.numpiste }}</p>
+                            </div>
+                            <div class="col-md-4">
+                                <p>Titre : {{ musique.titre }}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <audio src="{{ asset('uploads/musiques/' ~ musique.musique) }}" controls></audio>
+                            </div>
+                        </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %} 

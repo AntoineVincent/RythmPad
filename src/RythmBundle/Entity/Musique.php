@@ -49,6 +49,13 @@ class Musique
      */
     private $iduser;
 
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="numpiste", type="integer", nullable=true)
+     */
+    private $numpiste;
+
 
     /**
      * Get id
@@ -154,6 +161,30 @@ class Musique
     public function getIduser()
     {
         return $this->iduser;
+    }
+
+    /**
+     * Set numpiste
+     *
+     * @param integer $numpiste
+     *
+     * @return Musique
+     */
+    public function setNumpiste($numpiste)
+    {
+        $this->numpiste = $numpiste;
+
+        return $this;
+    }
+
+    /**
+     * Get numpiste
+     *
+     * @return int
+     */
+    public function getNumpiste()
+    {
+        return $this->numpiste;
     }
 }
 
