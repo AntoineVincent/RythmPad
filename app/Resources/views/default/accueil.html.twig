@@ -18,7 +18,7 @@
     <div class="col-md-12">
         <div class="col-md-2"></div>
         <div class="col-md-8 prl-div album-list-inde">
-            <h2 class="added-by">Album Ajouté par : <a class="view-user" href="{{ path('user_profil', { 'username': tabalbum['user'] }) }}">{{ tabalbum['user'] }}</a></h2>
+            <h2 class="added-by">Album Ajouté par : <a class="view-user" href="{{ path('user_profil', { 'username': tabalbum['friend'] }) }}">{{ tabalbum['friend'] }}</a></h2>
             <hr>
             <div class="col-md-3">
                 <img class="folder" src="{{ asset('uploads/folders/' ~ tabalbum['folder']) }}" />

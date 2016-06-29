@@ -14,23 +14,30 @@ class AccueilController extends Controller
     public function accueilAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
+        $user = $this->container->get('security.context')->getToken()->getUser();
 
         $tabalbums = [];
 
-        $albums = $em->getRepository('RythmBundle:Album')->findAll();
+        $amis = $em->getRepository('AppBundle:Ami')->findByIduser($user->getId());
 
-        foreach ($albums as $album) {
-            $user = $em->getRepository('AppBundle:User')->findOneById($album->getIduser());
-            $tabalbums[] = array(
-                'user' => $user->getUsername(),
-                'folder' => $album->getFolder(),
-                'titre' => $album->getTitre(),
-                'artiste' => $album->getArtiste(),
-                'genre' => $album->getGenre(),
-                'date' => $album->getDate(),
-                'id' => $album->getId(),
-            );
+        foreach ($amis as $ami) {
+
+            $albums = $em->getRepository('RythmBundle:Album')->findByIduser($ami->getIdami());
+
+            foreach ($albums as $album) {
+                $friend = $em->getRepository('AppBundle:User')->findOneById($ami->getIdami());
+                $tabalbums[] = array(
+                    'friend' => $friend->getUsername(),
+                    'folder' => $album->getFolder(),
+                    'titre' => $album->getTitre(),
+                    'artiste' => $album->getArtiste(),
+                    'genre' => $album->getGenre(),
+                    'date' => $album->getDate(),
+                    'id' => $album->getId(),
+                );
+            }
         }
+
 
         return $this->render('default/accueil.html.twig', array(
             'tabalbums' => $tabalbums,

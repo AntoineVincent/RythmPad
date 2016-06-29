@@ -57,3 +57,7 @@ page_album:
 new_musique:
     path:   /album/musique/{idalbum}
     defaults: { _controller: RythmBundle:Album:musique}
+
+search:
+    path: /search
+    defaults: { _controller: AppBundle:Search:album}

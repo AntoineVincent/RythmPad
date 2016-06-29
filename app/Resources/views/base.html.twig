@@ -29,6 +29,27 @@
       <a class="navbar-brand" href="{{ path('accueil') }}"><img class="img-responsive logotage" src="{{ asset('img/logorythm.png')}}">RythmPad</a>
     </div>
 
+    <form method="POST" action="" class="navbar-form navbar-left inline-form">
+      <input id="search" type="text" name="recherche" class="input-sm form-control">
+      <input type="submit" value="CHERCHER" class="btn-primary btn">
+    </form>
+
+    <script>
+        $('#search').keyup(function() {
+            recherche = $(this).val();
+
+            $.ajax({
+              type: "POST",
+              url: "{{ path('search') }}",
+              dataType: "json",
+              data: {recherche : recherche},
+              success : function(response) {
+                console.log(response);
+              }
+            });
+        });
+    </script>
+
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %} 

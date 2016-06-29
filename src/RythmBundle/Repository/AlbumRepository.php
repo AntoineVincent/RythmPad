@@ -10,4 +10,12 @@ namespace RythmBundle\Repository;
  */
 class AlbumRepository extends \Doctrine\ORM\EntityRepository
 {
+	public function myFind($string)
+
+	{
+	  	return $this->getEntityManager()->createQuery('SELECT a FROM RythmBundle:Album a  
+                WHERE a.titre LIKE :string')
+                ->setParameter('string','%'.$string.'%')
+                ->getResult();
+	}
 }
