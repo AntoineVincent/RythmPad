@@ -18,8 +18,9 @@ class SearchController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $string = $this->getRequest()->request->get('recherche');
+        $limit = 3;
 
-        $listalbum = $em->getRepository('RythmBundle:Album')->myFind($string);
+        $listalbum = $em->getRepository('RythmBundle:Album')->myFind($string, $limit);
 
         $encoders = array(new XmlEncoder(), new JsonEncoder());
         $normalizers = array(new GetSetMethodNormalizer());

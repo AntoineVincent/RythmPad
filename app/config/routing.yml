@@ -51,7 +51,7 @@ list_album:
     defaults: { _controller: RythmBundle:Album:list}
 
 page_album:
-    path:   /album/{idalbum}
+    path:   /album/{titre}
     defaults: { _controller: RythmBundle:Album:page}
 
 new_musique:

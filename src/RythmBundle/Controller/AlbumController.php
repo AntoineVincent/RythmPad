@@ -54,11 +54,11 @@ class AlbumController extends Controller
             'tests' => $tests,
         ));
     }
-    public function pageAction(Request $request, $idalbum)
+    public function pageAction(Request $request, $titre)
     {
         $em = $this->getDoctrine()->getManager();
-        $test = $em->getRepository('RythmBundle:Album')->findOneById($idalbum);
-        $musiques = $em->getRepository('RythmBundle:Musique')->findByIdalbum($idalbum);
+        $test = $em->getRepository('RythmBundle:Album')->findOneByTitre($titre);
+        $musiques = $em->getRepository('RythmBundle:Musique')->findByIdalbum($test->getId());
         $userad = $em->getRepository('AppBundle:User')->findOneById($test->getIduser());
 
         return $this->render('default/albumpage.html.twig', array(

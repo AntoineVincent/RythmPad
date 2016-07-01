@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="js">
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}RythmPad{% endblock %}</title>
@@ -9,17 +9,21 @@
         <script type="text/javascript" src="{{ asset('js/jquery.js') }}" ></script>
         <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}" ></script>
         <script type="text/javascript" src="{{ asset('js/TrianglesLife.js') }}" ></script>
-        <script type="text/javascript" src="{{ asset('js/TweenMax.min.js') }}" ></script>      
+        <script type="text/javascript" src="{{ asset('js/TweenMax.min.js') }}" ></script> 
+        <script type="text/javascript" src="{{ asset('js/preloader.js') }}" ></script>      
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
         <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
     </head>
     <body>
         {% block body %}
+            <div id="preloader">
+                <h2 class="pre-load-title"> Chargement En Cours </h2>
+            </div>
 
         	<canvas id="monCanvas"></canvas>
 	        <script>
-	        	$(document).ready(function() {
+	        	
                     var params = {
                         canvasId : 'monCanvas',
                         triangleWidth : 36,
@@ -31,7 +35,7 @@
                     }
                     var tl = new TrianglesLife(params);
                     tl.start();
-                });
+                
 	        </script>
 
        		<svg viewBox="0 0 960 300">

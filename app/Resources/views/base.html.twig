@@ -9,6 +9,9 @@
         <script type="text/javascript" src="{{ asset('js/jquery.js') }}" ></script>
         <script type="text/javascript" src="{{ asset('js/onglet.js') }}" ></script>
         <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}" ></script> 
+        <script type="text/javascript" src="{{ asset('js/jquery-1.7.2.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/jquery-ui-1.8.21.custom.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/player.js') }}"></script>
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
         <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
@@ -32,6 +35,8 @@
     <form method="POST" action="" class="navbar-form navbar-left inline-form">
       <input id="search" type="text" name="recherche" class="input-sm form-control">
       <input type="submit" value="CHERCHER" class="btn-primary btn">
+      <div id="sresult" class="search-result">
+      </div>
     </form>
 
     <script>
@@ -44,7 +49,23 @@
               dataType: "json",
               data: {recherche : recherche},
               success : function(response) {
-                console.log(response);
+                document.getElementById("sresult").innerHTML = "";
+                if(response.length === 1){
+                    var elmt = document.getElementById("sresult");
+                    elmt.style.display = "block";
+
+                    var result = response[0];
+                    document.getElementById("sresult").innerHTML = "<div class=resultat><p> Titre : "+result.titre+"<br/>Artiste : "+result.artiste+"<br/>Genre : "+result.genre+"</p><br/></div>";
+                }
+                else {
+                  for(var i =0;i <= response.length-1;i++) {
+                    var elmt = document.getElementById("sresult");
+                    elmt.style.display = "block";
+
+                    var result = response[i];
+                    document.getElementById("sresult").innerHTML += "<div class=resultat><p> Titre : "+result.titre+"<br/>Artiste : "+result.artiste+"<br/>Genre : "+result.genre+"</p><br/></div>";
+                  }
+                }
               }
             });
         });

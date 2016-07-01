@@ -19,13 +19,30 @@ class AccueilController extends Controller
         $tabalbums = [];
 
         $amis = $em->getRepository('AppBundle:Ami')->findByIduser($user->getId());
+        if($amis != NULL) {
+            foreach ($amis as $ami) {
 
-        foreach ($amis as $ami) {
+                $albums = $em->getRepository('RythmBundle:Album')->findByIduser($ami->getIdami());
 
-            $albums = $em->getRepository('RythmBundle:Album')->findByIduser($ami->getIdami());
+                foreach ($albums as $album) {
+                    $friend = $em->getRepository('AppBundle:User')->findOneById($ami->getIdami());
+                    $tabalbums[] = array(
+                        'friend' => $friend->getUsername(),
+                        'folder' => $album->getFolder(),
+                        'titre' => $album->getTitre(),
+                        'artiste' => $album->getArtiste(),
+                        'genre' => $album->getGenre(),
+                        'date' => $album->getDate(),
+                        'id' => $album->getId(),
+                    );
+                }
+            }
+        }
+        else {
+            $albums = $em->getRepository('RythmBundle:Album')->findAll();
 
             foreach ($albums as $album) {
-                $friend = $em->getRepository('AppBundle:User')->findOneById($ami->getIdami());
+                $friend = $em->getRepository('AppBundle:User')->findOneById($album->getIduser());
                 $tabalbums[] = array(
                     'friend' => $friend->getUsername(),
                     'folder' => $album->getFolder(),

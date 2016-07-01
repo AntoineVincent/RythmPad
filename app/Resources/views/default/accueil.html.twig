@@ -30,7 +30,7 @@
                 <p>Date : {{ tabalbum['date']|date('Y') }}</p>
             </div>
             <div class="col-md-4 div-btn">
-                <a class="btn btn-acces" href="{{ path('page_album', { 'idalbum': tabalbum['id'] }) }}">Ecouter</a>
+                <a class="btn btn-acces" href="{{ path('page_album', { 'titre': tabalbum['titre'] }) }}">Ecouter</a>
             </div>
         </div>
         <div class="col-md-2"></div>

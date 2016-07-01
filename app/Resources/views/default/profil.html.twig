@@ -39,13 +39,13 @@
         <div class="col-md-8 prl-div right-div">
             <div class="col-md-12">
                 <div class="col-md-4 ong1 ong">
-                    <h2 class="prl-title"> Par Album </h2>
+                    <h2 class="prl-title"> Par Albums </h2>
                 </div>
                 <div class="col-md-4 ong2 ong">
-                    <h2 class="prl-title"> Par Genre </h2>
+                    <h2 class="prl-title"> Par Genres </h2>
                 </div>
                 <div class="col-md-4 ong3 ong">
-                    <h2 class="prl-title"> Tout afficher </h2>
+                    <h2 class="prl-title"> Par Musiques </h2>
                 </div>
             </div>
 
@@ -62,7 +62,7 @@
                                 <p>Album : {{ album.titre }}</p>
                             </div>
                             <div class="col-xs-12 col-md-12 mus-empt link-alb prl-list-alb">
-                                <a class="btn" href="{{ path('page_album', { 'idalbum': album.id }) }}">VOIR</a>
+                                <a class="btn" href="{{ path('page_album', { 'titre': album.titre }) }}">VOIR</a>
                             </div>
                         </div>
                     {% endfor %}
@@ -77,33 +77,34 @@
             </div>
 
             <div class="col-md-12 corps3 corpsother">
-                {% if musiques.iduser is defined %}
-                    {% for musique in musiques %}
-                            <div class="col-xs-12 col-md-12 prl-list-alb">
-                                <div class="col-md-2">
-                                    <p>Piste n° : {{ musique.numpiste }}</p>
-                                </div>
-                                <div class="col-md-4">
-                                    <p>Titre : {{ musique.titre }}</p>
-                                </div>
-                                <div class="col-md-6">
-                                    <audio src="{{ asset('uploads/musiques/' ~ musique.musique) }}" controls></audio>
-                                </div>
-                            </div>
-                    {% endfor %}
-                {% else %}
-                    <div class="col-md-12 prl-list" style="text-align:center;">
-                        <h2 class="prl-title"> Vous n'avez ajoutez aucunes musiques </h2>
-                        <a class="btn btn-prl" href="{{ path('new_album') }}">Ajouter des Albums</a>
+                <div class="main">
+                    <div class="player">
+                        <div class="pl"></div>
+                        <div class="title"></div>
+                        <div class="artist"></div>
+                        <div class="cover"></div>
+                        <div class="controls">
+                            <div class="play"></div>
+                            <div class="pause"></div>
+                            <div class="rew"></div>
+                            <div class="fwd"></div>
+                        </div>
+                        <div class="volume"></div>
+                        <div class="tracker"></div>
                     </div>
-                {% endif %}
-            </div>
+                    <ul class="playlist hiddenn">
+                        {% for musique in musiques %}
+                            <li audiourl="{{ musique.musique }}" cover="{{ musique.folder }}" artist="{{ musique.artiste }}">{{ musique.artiste }} : {{ musique.numpiste }} - {{ musique.titre }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
 
             <div class="col-md-12">
                 <hr>
             </div>
+        </div>
 
-            <div class="col-md-12">
+        <div class="col-md-12">
                 <div class="col-md-12 glet1 glet">
                     <h2 class="prl-title title-sub"> Mes Abonnement </h2>
                 </div>
@@ -132,8 +133,6 @@
                     {% endfor %}
                 </div>
             </div>
-
-        </div>
     </div>
 </div>
 

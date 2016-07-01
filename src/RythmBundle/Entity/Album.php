@@ -29,6 +29,13 @@ class Album
     private $titre;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="number", type="integer", nullable=true)
+     */
+    private $number;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="artiste", type="string", length=255, nullable=true)
@@ -216,6 +223,30 @@ class Album
     public function getIduser()
     {
         return $this->iduser;
+    }
+
+    /**
+     * Set number
+     *
+     * @param integer $number
+     *
+     * @return Album
+     */
+    public function setNumber($number)
+    {
+        $this->number = $number;
+
+        return $this;
+    }
+
+    /**
+     * Get number
+     *
+     * @return int
+     */
+    public function getNumber()
+    {
+        return $this->number;
     }
 }
 

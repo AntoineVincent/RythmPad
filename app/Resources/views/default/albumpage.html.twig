@@ -23,34 +23,27 @@
     </div>
 
     <div class="col-md-7 file-list result-indd">
-            <div class="col-md-12">
-                <div class="col-md-2">
-                    <h3>Piste n°</h3>
+        <div class="main">
+            <div class="player">
+                <div class="pl"></div>
+                <div class="title"></div>
+                <div class="artist"></div>
+                <div class="cover"></div>
+                <div class="controls">
+                    <div class="play"></div>
+                    <div class="pause"></div>
+                    <div class="rew"></div>
+                    <div class="fwd"></div>
                 </div>
-                <div class="col-md-5">
-                    <h3>Titre</h3>
-                </div>
-                <div class="col-md-5">
-                    
-                </div>
+                <div class="volume"></div>
+                <div class="tracker"></div>
             </div>
-            <div class="col-md-12">
-                <hr>
-            </div>
- 		{% for musique in musiques %}
- 			<div class="col-md-12">
-                <div class="col-md-2">
-                    <p>{{ musique.numpiste }}</p>
-                </div>
-    			<div class="col-md-5">
-    				<p>{{ musique.titre }}</p>
-    			</div>
-    			<div class="col-md-5">
-    				<audio src="{{ asset('uploads/musiques/' ~ musique.musique) }}" controls></audio>
-    			</div>
-    		</div>
-    		<hr class="lop">
-    	{% endfor %}
+            <ul class="playlist hiddenn">
+                {% for musique in musiques %}
+                    <li audiourl="{{ musique.musique }}" cover="{{ test.folder }}" artist="{{ test.artiste }}">{{ musique.numpiste }} - {{ musique.titre }}</li>
+                {% endfor %}
+            </ul>
+        </div>
 	</div>
 </div>
 
